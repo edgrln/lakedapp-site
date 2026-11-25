@@ -1,0 +1,16 @@
+# LakedApp
+
+> Практические статьи и разборы по data- и AI-инжинирингу.
+
+## Site
+
+- [Homepage](https://lakedapp.com/index.md): AI assistants, Telegram ecosystems, and digital-presence architecture for online experts and small businesses.
+- [LakedApp — Data & AI Engineering](https://lakedapp.com/data-ai.md): B2B pitch: data pipelines, BI, and AI solutions on Google Cloud.
+
+## Blog
+
+- [GTM Engineer: кто это и чем отличается от дата- и аналитик-инженера](https://lakedapp.com/blog/gtm-engineer-role.md): Термин придумала Clay в 2023 году — разбираем по первоисточникам, что реально делает GTM-инженер и чем эта роль отличается от RevOps, дата- и аналитик-инженера.
+- [Память AI-агентов: рабочий фреймворк вместо зоопарка терминов](https://lakedapp.com/blog/agent-memory-framework.md): Три независимые оси — что хранится, как достаётся и кто владеет, — вместо очередного списка из четырёх-семи «типов памяти».
+- [Чек-лист: 7 вопросов перед миграцией на Google Cloud](https://lakedapp.com/blog/gcp-migration-checklist.md): Семь вопросов, которые стоит закрыть до переноса дата-платформы на GCP, а не через месяц после.
+- [Как мы ускорили дата-пайплайн в 10 раз](https://lakedapp.com/blog/data-pipeline-x10.md): Разбор одного узкого места, из-за которого ночной ETL занимал 6 часов вместо 40 минут — и что мы поменяли в архитектуре.
+

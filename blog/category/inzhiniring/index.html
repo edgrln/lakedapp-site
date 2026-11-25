@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Cookie consent (vanilla-cookieconsent) - loaded before GTM so
+         Google Consent Mode defaults are set before any tag can fire. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        // Google Consent Mode v2 defaults: deny analytics/ads storage until
+        // the visitor actually accepts via the cookie banner (see
+        // theme/js/cookieconsent-config.js, which calls gtag('consent',
+        // 'update', ...) from CookieConsent's onFirstConsent/onChange). Set
+        // before gtag.js loads below, per Google's own ordering guidance.
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+        });
+    </script>
+    <!-- Google Analytics 4 (direct gtag.js - no Tag Manager container) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERML6E6JW9"></script>
+    <script>
+        gtag('js', new Date());
+        gtag('config', 'G-ERML6E6JW9');
+    </script>
+    <!-- End Google Analytics 4 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Инжиниринг — LakedApp</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="canonical" href="https://lakedapp.com/blog/category/inzhiniring/">
+
+    <meta name="description" content="Практические статьи и разборы по data- и AI-инжинирингу.">
+    <meta property="og:site_name" content="LakedApp">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LakedApp">
+    <meta property="og:description" content="Практические статьи и разборы по data- и AI-инжинирингу.">
+    <meta property="og:image" content="https://lakedapp.com/theme/brand/lakedsoft-social.png">
+    <meta property="og:url" content="https://lakedapp.com/blog/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LakedApp">
+    <meta name="twitter:description" content="Практические статьи и разборы по data- и AI-инжинирингу.">
+    <meta name="twitter:image" content="https://lakedapp.com/theme/brand/lakedsoft-social.png">
+
+    <link rel="stylesheet" href="https://lakedapp.com/theme/css/classical.css">
+    <link rel="stylesheet" href="https://lakedapp.com/theme/css/blog.css">
+
+    <style>
+        /* Cookie-consent widget re-themed to the Classical palette (paper /
+           ink / gold), same tokens as landing.html's copy of this block. */
+        :root, .cc--darkmode {
+            --cc-bg: #f3f2f2;
+            --cc-primary-color: #201f1d;
+            --cc-secondary-color: #57544e;
+            --cc-btn-primary-bg: #201f1d;
+            --cc-btn-primary-color: #f3f2f2;
+            --cc-btn-primary-border-color: #201f1d;
+            --cc-btn-primary-hover-bg: #000000;
+            --cc-btn-primary-hover-color: #ffffff;
+            --cc-btn-primary-hover-border-color: #000000;
+            --cc-btn-secondary-bg: #eae9e9;
+            --cc-btn-secondary-color: #201f1d;
+            --cc-btn-secondary-border-color: #eae9e9;
+            --cc-btn-secondary-hover-bg: #dcd9d4;
+            --cc-btn-secondary-hover-color: #000000;
+            --cc-btn-secondary-hover-border-color: #dcd9d4;
+            --cc-toggle-on-bg: #b68235;
+            --cc-toggle-off-bg: #9b9797;
+            --cc-toggle-on-knob-bg: #ffffff;
+            --cc-toggle-off-knob-bg: #ffffff;
+            --cc-toggle-readonly-bg: #d7d3d3;
+            --cc-toggle-readonly-knob-bg: #ffffff;
+            --cc-toggle-readonly-knob-icon-color: #d7d3d3;
+            --cc-cookie-category-block-bg: #eae9e9;
+            --cc-cookie-category-block-border: #eae9e9;
+            --cc-cookie-category-block-hover-bg: #dcd9d4;
+            --cc-cookie-category-block-hover-border: #dcd9d4;
+            --cc-separator-border-color: #dcd9d4;
+            --cc-footer-bg: #f3f2f2;
+            --cc-footer-color: #57544e;
+            --cc-footer-border-color: #dcd9d4;
+            --cc-modal-border-radius: 8px;
+            --cc-btn-border-radius: 4px;
+        }
+        #cc-main { color-scheme: light; }
+        #cc-main .section__toggle:checked ~ .toggle__icon { background: #b68235 !important; box-shadow: 0 0 0 1px #b68235 !important; }
+        #cc-main .section__toggle:checked ~ .toggle__icon .toggle__icon-on svg { stroke: #b68235 !important; }
+        #cc-main .section__toggle:not(:checked) ~ .toggle__icon { background: #9b9797 !important; box-shadow: 0 0 0 1px #9b9797 !important; }
+        #cc-main .section__toggle:not(:checked) ~ .toggle__icon .toggle__icon-off svg { stroke: #9b9797 !important; }
+        #cc-main .section__toggle:checked:disabled ~ .toggle__icon { background: #d7d3d3 !important; box-shadow: 0 0 0 1px #d7d3d3 !important; }
+        #cc-main .section__toggle:checked:disabled ~ .toggle__icon .toggle__icon-circle { background: #ffffff !important; }
+        #cc-main .section__toggle:checked:disabled ~ .toggle__icon svg { stroke: #d7d3d3 !important; }
+        #cc-main .cm, #cc-main .pm { box-shadow: var(--shadow-lg); }
+        #cc-main .pm__section:not(:first-child) { background: #eae9e9; border-color: #eae9e9; }
+        #cc-main .pm__section:first-child { background: transparent; }
+        #cc-main .pm__section--toggle { background: #eae9e9; }
+        #cc-main .pm__section--toggle .pm__section-title { background: #eae9e9; border-color: #eae9e9; }
+        #cc-main .pm__section--toggle .pm__section-title:hover { background: #dcd9d4; border-color: #dcd9d4; }
+        #cc-main .pm__section--expandable .pm__section-arrow { background: #d7d3d3; }
+        #cc-main .pm__close-btn { background: #eae9e9; border-color: #eae9e9; }
+        #cc-main .pm__close-btn:hover { background: #dcd9d4; border-color: #dcd9d4; }
+    </style>
+
+    <link rel="icon" type="image/svg+xml" href="https://lakedapp.com/theme/brand/lakedsoft-favicon.svg">
+    <link rel="alternate icon" href="https://lakedapp.com/theme/img/favicon.ico">
+
+    <script>
+        function siteSearch() {
+            return {
+                query: '',
+                open: false,
+                results: [],
+                index: [],
+                selected: 0,
+                showAll: false,
+                init() {
+                    fetch('https://lakedapp.com/blog/search-index.json')
+                        .then((r) => r.json())
+                        .then((data) => { this.index = data; })
+                        .catch(() => { this.index = []; });
+                },
+                search() {
+                    const q = this.query.trim().toLowerCase();
+                    this.open = q.length > 0;
+                    this.selected = 0;
+                    this.showAll = false;
+                    if (!q) { this.results = []; return; }
+                    this.results = this.index.filter((item) =>
+                        item.title.toLowerCase().includes(q) || (item.content || item.summary).toLowerCase().includes(q)
+                    );
+                },
+                get visibleResults() {
+                    return this.showAll ? this.results : this.results.slice(0, 6);
+                },
+                clear() {
+                    this.query = '';
+                    this.results = [];
+                    this.open = false;
+                },
+                matchType(item) {
+                    const q = this.query.trim().toLowerCase();
+                    return item.title.toLowerCase().includes(q) ? 'title' : 'content';
+                },
+                escapeHtml(str) {
+                    return str.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+                },
+                highlight(text) {
+                    const q = this.query.trim();
+                    const escaped = this.escapeHtml(text);
+                    if (!q) return escaped;
+                    const escapedQ = this.escapeHtml(q).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    return escaped.replace(new RegExp('(' + escapedQ + ')', 'ig'), '<strong>$1</strong>');
+                },
+                move(delta) {
+                    if (!this.visibleResults.length) return;
+                    const max = this.visibleResults.length - 1;
+                    this.selected = Math.min(max, Math.max(0, this.selected + delta));
+                },
+                go() {
+                    const item = this.visibleResults[this.selected];
+                    if (item) window.location.href = item.url;
+                },
+            };
+        }
+
+        function infiniteScroll(nextUrl) {
+            return {
+                nextUrl: nextUrl || null,
+                loading: false,
+                init() {
+                    if (!this.nextUrl) return;
+                    const observer = new IntersectionObserver((entries) => {
+                        if (entries[0].isIntersecting) this.loadMore();
+                    });
+                    observer.observe(this.$refs.sentinel);
+                },
+                async loadMore() {
+                    if (this.loading || !this.nextUrl) return;
+                    this.loading = true;
+                    try {
+                        const res = await fetch(this.nextUrl);
+                        const html = await res.text();
+                        const doc = new DOMParser().parseFromString(html, 'text/html');
+                        const newPosts = doc.querySelectorAll('#post-list > article');
+                        const list = this.$refs.postList;
+                        newPosts.forEach((post) => list.appendChild(post));
+                        const pagination = doc.getElementById('pagination-data');
+                        this.nextUrl = pagination ? (pagination.dataset.nextUrl || null) : null;
+                    } catch (e) {
+                        this.nextUrl = null;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+            };
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <link href="https://lakedapp.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LakedApp Full Atom Feed">
+</head>
+<body class="lk-page">
+    <header class="lk-header" x-data="{ menuOpen: false }">
+        <div class="lk-container lk-header-inner">
+            <a href="https://lakedapp.com/" class="brand">
+                <img class="brand__mark" src="https://lakedapp.com/theme/brand/lakedsoft-mark.svg" alt="" width="28" height="28">
+                <span class="brand__text">
+                    <span class="brand__name">LakedApp</span>
+                    <span class="brand__sub">Systems &amp; software</span>
+                </span>
+            </a>
+
+            <nav class="lk-nav">
+                <div class="lk-nav-links">
+                    <a href="https://lakedapp.com/blog/">Блог</a>
+                </div>
+
+                <div class="search-box" x-data="siteSearch()" x-init="init()" @click.outside="open = false">
+                    <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input
+                        type="text"
+                        class="search-input"
+                        placeholder="Поиск"
+                        x-model="query"
+                        @input="search()"
+                        @focus="open = query.length > 0"
+                        @keydown.down.prevent="move(1)"
+                        @keydown.up.prevent="move(-1)"
+                        @keydown.enter.prevent="go()"
+                        @keydown.escape="clear()"
+                    >
+                    <button type="button" class="search-clear" x-show="query.length > 0" x-cloak @click="clear()" aria-label="Clear search">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    </button>
+                    <div class="search-results" x-show="open && results.length" x-cloak>
+                        <div class="search-result-list">
+                            <template x-for="(r, i) in visibleResults" :key="r.url">
+                                <a :href="r.url"
+                                   class="search-result-item"
+                                   :class="{ 'is-selected': i === selected }"
+                                   @mouseenter="selected = i">
+                                    <span class="search-result-icon" x-text="matchType(r) === 'title' ? '#' : '≡'"></span>
+                                    <span class="search-result-text">
+                                        <span class="search-result-title" x-html="highlight(r.title)"></span>
+                                        <span class="search-result-summary" x-text="r.summary"></span>
+                                    </span>
+                                    <svg class="search-result-enter" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6v6a2 2 0 0 1-2 2H6M10 10l-4 4 4 4"/></svg>
+                                </a>
+                            </template>
+                        </div>
+                        <template x-if="results.length > visibleResults.length">
+                            <a href="#" class="search-see-all" @click.prevent="showAll = true">
+                                Показать все результаты (<span x-text="results.length"></span>)
+                            </a>
+                        </template>
+                    </div>
+                    <div class="search-results" x-show="open && query.length > 0 && results.length === 0" x-cloak>
+                        <div class="search-no-results">Ничего не найдено</div>
+                    </div>
+                </div>
+
+                <button type="button" class="lk-nav-toggle" @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-label="Меню">
+                    <svg x-show="!menuOpen" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <svg x-show="menuOpen" x-cloak xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </nav>
+        </div>
+
+        <div class="lk-container">
+            <div x-show="menuOpen" x-cloak x-transition class="lk-mobile-nav">
+                <div class="search-box" x-data="siteSearch()" x-init="init()" @click.outside="open = false">
+                    <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input
+                        type="text"
+                        class="search-input"
+                        placeholder="Поиск"
+                        x-model="query"
+                        @input="search()"
+                        @focus="open = query.length > 0"
+                        @keydown.enter.prevent="go()"
+                        @keydown.escape="clear()"
+                    >
+                    <button type="button" class="search-clear" x-show="query.length > 0" x-cloak @click="clear()" aria-label="Clear search">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    </button>
+                    <div class="search-results" x-show="open && results.length" x-cloak>
+                        <div class="search-result-list">
+                            <template x-for="(r, i) in visibleResults" :key="r.url">
+                                <a :href="r.url" class="search-result-item" :class="{ 'is-selected': i === selected }">
+                                    <span class="search-result-icon" x-text="matchType(r) === 'title' ? '#' : '≡'"></span>
+                                    <span class="search-result-text">
+                                        <span class="search-result-title" x-html="highlight(r.title)"></span>
+                                        <span class="search-result-summary" x-text="r.summary"></span>
+                                    </span>
+                                </a>
+                            </template>
+                        </div>
+                        <template x-if="results.length > visibleResults.length">
+                            <a href="#" class="search-see-all" @click.prevent="showAll = true">
+                                Показать все результаты (<span x-text="results.length"></span>)
+                            </a>
+                        </template>
+                    </div>
+                    <div class="search-results" x-show="open && query.length > 0 && results.length === 0" x-cloak>
+                        <div class="search-no-results">Ничего не найдено</div>
+                    </div>
+                </div>
+                <a href="https://lakedapp.com/blog/" @click="menuOpen=false">Блог</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="lk-main">
+        <div class="lk-container">
+<div class="blog-layout">
+    <aside>
+        <div class="sidebar-sticky">
+            <div class="sidebar-heading">Все статьи</div>
+            <div class="sidebar-year">2026</div>
+            <ul class="sidebar-list">
+                <li>
+                    <a href="https://lakedapp.com/blog/gtm-engineer-role/" class="sidebar-link ">
+                        GTM Engineer: кто это и чем отличается от дата- и аналитик-инженера
+                    </a>
+                </li>
+                <li>
+                    <a href="https://lakedapp.com/blog/data-pipeline-x10/" class="sidebar-link ">
+                        Как мы ускорили дата-пайплайн в 10 раз
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <div class="content-wrap">
+<h1 class="page-title">Категория: Инжиниринг</h1>
+<article class="post-item">
+    <h2><a class="article-title-link" href="https://lakedapp.com/blog/gtm-engineer-role/">GTM Engineer: кто это и чем отличается от дата- и аналитик-инженера</a></h2>
+    <p class="post-meta">Tue 15 September 2026</p>
+
+        <div class="authors-row">
+<div class="author-card">
+    <img src="https://avatars.githubusercontent.com/u/78014277?v=4" alt="Edgar L" class="author-avatar">
+    <div>
+        <div style="display:flex; align-items:center; gap: 8px;">
+            <a href="https://lakedapp.com/blog/author/edgar-l/" class="author-name">Edgar L</a>
+        </div>
+<div class="author-title">Технический автор — AI и Data</div>        <div class="author-social-links">
+            <a href="https://www.linkedin.com/in/edgarlakshin/" class="author-social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </a>
+            <a href="https://github.com/edgrln" class="author-social-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.79-.25.79-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.96.1-.75.4-1.25.73-1.54-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.38 2.9-.39.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.6.23 2.77.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.28 5.69.42.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.23 0 .3.21.66.8.55A10.53 10.53 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            </a>
+        </div>
+    </div>
+</div>        </div>
+
+    <p class="post-summary"><p>Термин придумала Clay в 2023 году — разбираем по первоисточникам, что реально делает GTM-инженер и чем эта роль отличается от RevOps, дата- и аналитик-инженера.</p></p>
+
+    <div class="tags-row">
+        <a href="https://lakedapp.com/blog/tag/gtm-engineer/" class="tag-pill">GTM Engineer</a>
+        <a href="https://lakedapp.com/blog/tag/revops/" class="tag-pill">RevOps</a>
+        <a href="https://lakedapp.com/blog/tag/data-engineer/" class="tag-pill">Data Engineer</a>
+        <a href="https://lakedapp.com/blog/tag/analytics-engineer/" class="tag-pill">Analytics Engineer</a>
+        <a href="https://lakedapp.com/blog/tag/karera/" class="tag-pill">карьера</a>
+    </div>
+
+    <a href="https://lakedapp.com/blog/gtm-engineer-role/" class="btn btn-secondary">Читать дальше</a>
+</article>
+<article class="post-item">
+    <h2><a class="article-title-link" href="https://lakedapp.com/blog/data-pipeline-x10/">Как мы ускорили дата-пайплайн в 10 раз</a></h2>
+    <p class="post-meta">Thu 20 August 2026</p>
+
+        <div class="authors-row">
+<div class="author-card">
+    <img src="https://avatars.githubusercontent.com/u/78014277?v=4" alt="Edgar L" class="author-avatar">
+    <div>
+        <div style="display:flex; align-items:center; gap: 8px;">
+            <a href="https://lakedapp.com/blog/author/edgar-l/" class="author-name">Edgar L</a>
+        </div>
+<div class="author-title">Технический автор — AI и Data</div>        <div class="author-social-links">
+            <a href="https://www.linkedin.com/in/edgarlakshin/" class="author-social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </a>
+            <a href="https://github.com/edgrln" class="author-social-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.79-.25.79-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.96.1-.75.4-1.25.73-1.54-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.38 2.9-.39.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.6.23 2.77.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.28 5.69.42.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.23 0 .3.21.66.8.55A10.53 10.53 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            </a>
+        </div>
+    </div>
+</div>        </div>
+
+    <p class="post-summary"><p>Разбор одного узкого места, из-за которого ночной ETL занимал 6 часов вместо 40 минут — и что мы поменяли в архитектуре.</p></p>
+
+    <div class="tags-row">
+        <a href="https://lakedapp.com/blog/tag/bigquery/" class="tag-pill">BigQuery</a>
+        <a href="https://lakedapp.com/blog/tag/airflow/" class="tag-pill">Airflow</a>
+        <a href="https://lakedapp.com/blog/tag/data-inzhiniring/" class="tag-pill">дата-инжиниринг</a>
+        <a href="https://lakedapp.com/blog/tag/proizvoditelnost/" class="tag-pill">производительность</a>
+    </div>
+
+    <a href="https://lakedapp.com/blog/data-pipeline-x10/" class="btn btn-secondary">Читать дальше</a>
+</article>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer class="lk-footer">
+        <div class="lk-container">
+            <div class="lk-footer-grid">
+                <div>
+                    <div class="lk-footer-heading">LakedApp</div>
+                    <div class="lk-footer-links">
+                        <a href="https://lakedapp.com/blog/">Блог</a>
+                        <a href="https://lakedapp.com/">На главную</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="lk-footer-heading">Community</div>
+                    <div class="lk-footer-links">
+                        <a href="https://github.com/edgrln/datacloudhero_v2">Git Hub</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="lk-footer-heading">More</div>
+                    <div class="lk-footer-links">
+                        <a href="https://lakedapp.com/blog/cookie-policy/">Политика cookie</a>
+                        <button type="button" data-cc="show-preferencesModal">Настройки cookie</button>
+                    </div>
+                </div>
+            </div>
+            <div class="lk-footer-bottom">
+                © 2026 LakedApp · Data &amp; AI Engineering · Работаем из Франции 🇫🇷
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // "Copy page as Markdown" buttons (see partials/ai_actions.html).
+        document.addEventListener('click', function (event) {
+            var btn = event.target.closest('.js-copy-markdown');
+            if (!btn) return;
+
+            var label = btn.closest('.ai-actions').querySelector('.js-ai-actions-label');
+            var resetLabel = label ? label.textContent : null;
+
+            fetch(btn.dataset.mdUrl)
+                .then(function (r) {
+                    if (!r.ok) throw new Error('Fetch failed: ' + r.status);
+                    return r.text();
+                })
+                .then(function (text) { return navigator.clipboard.writeText(text); })
+                .then(function () {
+                    if (label) label.textContent = "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e!";
+                })
+                .catch(function (err) {
+                    console.error('Copy as Markdown failed', err);
+                    if (label) label.textContent = "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0441\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c";
+                })
+                .finally(function () {
+                    if (label) setTimeout(function () { label.textContent = resetLabel; }, 1800);
+                });
+        });
+    </script>
+    <script type="module" src="https://lakedapp.com/theme/js/cookieconsent-config.js"></script>
+</body>
+</html>
